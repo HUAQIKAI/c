@@ -1,9 +1,124 @@
-/*å†’æ³¡æ’åºç®—æ³•*/
-/*å†’æ³¡æ’åºç®—æ³•æ˜¯åšä»€ä¹ˆç”¨çš„ï¼Ÿ*/
-/*å†’æ³¡æ’åºç®—æ³•çš„ä¼˜åŠ¿æ˜¯ä»€ä¹ˆï¼Ÿ*/
-/*å†’æ³¡æ’åºç®—æ³•ä¸å…¶å®ƒæ’åºç®—æ³•ç›¸æ¯”æœ‰ä»€ä¹ˆç¼ºé™·ï¼Ÿ*/
-/*å†’æ³¡æ’åºç®—æ³•çš„ç®—æ³•æ ¸å¿ƒæ€æƒ³æ˜¯ä»€ä¹ˆï¼Ÿ*/
-/*å†’æ³¡æ’åºç®—æ³•çš„åº”ç”¨åœºæ™¯ä¸€èˆ¬åœ¨ä»€ä¹ˆåœ°æ–¹ï¼Ÿ*/
-/*å†’æ³¡æ’åºç®—æ³•çš„å±€é™æ€§åœ¨ä»€ä¹ˆåœ°æ–¹?*/
-/*å†’æ³¡æ’åºç®—æ³•çš„æœ€ä½³é€‚ç”¨åœºæ™¯æ˜¯ä»€ä¹ˆï¼Ÿ*/
-/*å†’æ³¡æ’åºç®—æ³•å¦‚ä½•å®ç°?*/
+/*Ã°ÅİÅÅĞòËã·¨*/
+/*Ã°ÅİÅÅĞòËã·¨ÊÇ×öÊ²Ã´ÓÃµÄ£¿*/
+/*Ã°ÅİÅÅĞòËã·¨µÄÓÅÊÆÊÇÊ²Ã´£¿*/
+/*Ã°ÅİÅÅĞòËã·¨ÓëÆäËüÅÅĞòËã·¨Ïà±ÈÓĞÊ²Ã´È±Ïİ£¿*/
+/*Ã°ÅİÅÅĞòËã·¨µÄËã·¨ºËĞÄË¼ÏëÊÇÊ²Ã´£¿*/
+/*Ã°ÅİÅÅĞòËã·¨µÄÓ¦ÓÃ³¡¾°Ò»°ãÔÚÊ²Ã´µØ·½£¿*/
+/*Ã°ÅİÅÅĞòËã·¨µÄ¾ÖÏŞĞÔÔÚÊ²Ã´µØ·½?*/
+/*Ã°ÅİÅÅĞòËã·¨µÄ×î¼ÑÊÊÓÃ³¡¾°ÊÇÊ²Ã´£¿*/
+/*Ã°ÅİÅÅĞòËã·¨ÈçºÎÊµÏÖ?*/
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <time.h>
+
+void bubbleSort(int data[], size_t len)
+{
+	printf("bubbleSort--start.\n");
+	printf("dataLen = %d\n", len);
+	int i, j;
+	clock_t clockStart, clockEnd;
+	double useClock;
+	clockStart = clock();
+	printf("clockStart = %ld\n", clockStart);
+    for (i = 0; i < len - 1; i++) {
+        for (j = 0; j < len - 1 - i; j++) {
+            if (data[j] > data[j+1]) {        // ÏàÁÚÔªËØÁ½Á½¶Ô±È
+                int temp = data[j+1];        // ÔªËØ½»»»
+                data[j+1] = data[j];
+                data[j] = temp;
+            }
+        }
+    }
+	clockEnd = clock();
+	useClock = (double)(clockEnd - clockStart) / CLOCKS_PER_SEC;
+	printf("clockEnd = %ld\n", clockEnd);
+	printf("useClock = %lfÃë\n", useClock);
+	printf("bubbleSort--end.\n");
+}
+
+void printData(int data[], size_t len)
+{
+	int i;
+	printf("debugInfo:line = %d|sizeof(data) = %d\n", __LINE__, sizeof(data));
+	printf("debugInfo:line = %d|sizeof(int) = %d\n", __LINE__, sizeof(int));
+	for (i = 0; i < len; ++i)
+	{
+		printf("(%d)", data[i]);
+		if(((i + 1) % 5) == 0)
+		{
+			printf("\n");
+		}
+	}
+	printf("\n");
+}
+
+void initData(int data[], size_t len)
+{
+   int i, n;
+   time_t t;
+   
+   n = 5;
+   n = len;
+   /* ³õÊ¼»¯Ëæ»úÊı·¢ÉúÆ÷ */
+   srand((unsigned) time(&t));
+ 
+   /* Êä³ö 0 µ½ 50 Ö®¼äµÄ 5 ¸öËæ»úÊı */
+   for( i = 0 ; i < n ; i++ ) {
+      /*printf("%d\n", rand() % 50);*/
+	  data[i] = rand() % 10000;
+   }
+}
+#define yibai       100
+#define yiqian      1000
+#define yiwan       10000
+#define shiwan      100000
+#define yibaiwan    1000000
+#define yiqianwan   10000000
+#define yiyi        100000000
+
+# define n 100 /* n ¿É¸ù¾İĞèÒª¶¨Òå,ÕâÀï¼Ù¶¨Îª100*/
+void MatrixMultiply(int A[n][n], int B[n][n], int C[n][n])
+{ /*ÓÒ±ßÁĞÎª¸÷Óï¾äµÄÆµ¶È*/
+    int i, j, k;
+    for(i=0; i<n; i++) {  /*n+1*/
+        for (j=0; j<n; j++) { /*n*(n+1)*/
+          C[i][j] = 0; /*n2*/
+          for (k=0; k<n; k++) {  /*n2*(n+1)*/
+            C[i][j] = C[i][j] + A[i][k] * B[k][j];  /*n3*/
+          }
+        }
+    }
+}
+
+void selectionSort(int data[], size_t len) {
+
+    int minIndex, temp;
+	int i, j;
+    for (i = 0; i < len - 1; i++) { /*Ñ¡ÔñÅÅĞò´ÎÊı*/
+        minIndex = i;
+        for (j = i + 1; j < len; j++) {	/*±éÀúÎŞĞòÇø*/
+            if (data[j] < data[minIndex]) {     /* Ñ°ÕÒ×îĞ¡µÄÊı */
+                minIndex = j;                 /* ½«×îĞ¡ÊıµÄË÷Òı±£´æ*/
+            }
+        }
+        temp = data[i];
+        data[i] = data[minIndex];
+        data[minIndex] = temp;
+    }
+}
+
+int main()
+{
+	int data[shiwan];
+	size_t dataLen = sizeof(data) / sizeof(int);
+	printf("debugInfo:line = %d|sizeof(data) = %d\n", __LINE__, sizeof(data));
+	printf("debugInfo:line = %d|sizeof(int) = %d\n", __LINE__, sizeof(int));
+	printf("debugInfo:line = %d|dataLen = %d\n", __LINE__, dataLen);
+	initData(data, dataLen);
+/*	printData(data, dataLen);*/
+	bubbleSort(data, dataLen);
+/*	printData(data, dataLen);*/
+
+	return 0;
+}
