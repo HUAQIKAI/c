@@ -108,6 +108,8 @@ void selectionSort(int data[], size_t len) {
     }
 }
 
+
+
 int main()
 {
 	int data[shiwan];
