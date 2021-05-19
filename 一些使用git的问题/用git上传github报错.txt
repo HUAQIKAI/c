@@ -1,0 +1,5 @@
+$ git push
+fatal: unable to access 'https://github.com/HUAQIKAI/c.git/': OpenSSL SSL_read: Connection was reset, errno 10054
+
+$ git push
+fatal: unable to access 'https://github.com/HUAQIKAI/c.git/': Failed to connect to github.com port 443: Timed out
