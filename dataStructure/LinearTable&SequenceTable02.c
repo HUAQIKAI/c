@@ -54,7 +54,7 @@ int main()
 }
 
 /*顺序表插入元素的具体实现*/
-bool ListInsert(SqList &L, int i, int e)
+bool ListInsert(SqList *L, int i, int e)
 {
 	if (i >= L.length + 1 || i < 0 || L.length >= L.MaxSize)/*先判断i是否为有效值,L.length是否超出额定分配的空间*/
 		return false;				  /*插入失败,返回false*/
